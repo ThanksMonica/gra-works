@@ -19,7 +19,7 @@ wB = 0;
 maximum = 0.0;
 threshold1 = 0.0;
 threshold2 = 0.0;
-sum1 = sum((1:256).*histogramCounts.); 
+sum1 = sum((1:256).*histogramCounts); 
 % the above code is replace with this single line
 for ii=1:256
     wB = wB + histogramCounts(ii);
