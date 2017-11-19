@@ -69,8 +69,7 @@ end
     ② SPSS19.0-Common Factor Analysis
      `PCA`->主分量提取-加权融合；
 # - **识别**
-
-  -  <code>SVM</code>
+  -  `SVM`
   - `费歇尔判别函数方程`
 
 
