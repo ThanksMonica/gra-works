@@ -72,7 +72,7 @@ Lab，选取a通道，进行`二维OTSU分割`->提取病斑；
 ② SPSS19.0-Common Factor Analysis
 `PCA`->主分量提取-加权融合；
 # - **识别**
-① <code>SVM</code>
+① <code>SVM</code><br>
 ② `费歇尔判别函数方程`
 
 
