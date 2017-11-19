@@ -9,7 +9,7 @@
   ⑤ `腐蚀-Hough变换`->拟合<br>
   ### 图像分割方法
     基于阈值： 
-[直方图双峰法(mode)](http://blog.csdn.net/hh555800/article/details/42342687);
+[直方图双峰法(mode)](http://blog.csdn.net/hh555800/article/details/42342687);<br>
 [OTSU（自适应阈值)](https://zh.wikipedia.org/zh-hans/%E5%A4%A7%E6%B4%A5%E7%AE%97%E6%B3%95)<br>
 `缺点`：当图像复杂时（灰度差异小，信噪比低，目标面积小等）分割效果较差 ；
 ```matlab
@@ -69,7 +69,7 @@ end
     ② SPSS19.0-Common Factor Analysis
      `PCA`->主分量提取-加权融合；
 # - **识别**
-    ① `SVM`
+    ① <code>SVM<code/>
     ② `费歇尔判别函数方程`
 
 
