@@ -70,7 +70,7 @@ end
      `PCA`->主分量提取-加权融合；
 # - **识别**
 
-  -  <code>SVM<code/>
+  -  <code>SVM</code>
   - `费歇尔判别函数方程`
 
 
