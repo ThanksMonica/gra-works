@@ -46,6 +46,9 @@ end
 level = (threshold1 + threshold2 )/(2);
 end
 ```
+
+
+
              [固定阈值/半阈值/迭代阈值法]
     基于边缘：边缘检测方法
     基于区域：[分水岭算法]
@@ -69,7 +72,7 @@ end
     ② SPSS19.0-Common Factor Analysis
      `PCA`->主分量提取-加权融合；
 # - **识别**
-    ① <code>SVM<code/>
+    ① <code>SVM</code>
     ② `费歇尔判别函数方程`
 
 
