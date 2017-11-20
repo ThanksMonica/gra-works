@@ -54,4 +54,4 @@ u = fu * fw + bu*bw  (2)<br>
 - 类间方差：
 类间方差 g：fw*(fu-u)^2+bw*(bu-u)^2  (3)<br>
 将(1)(2)带入(3)式：<br>
-g = bw*fw*(fu-bu)^2<br>
+g = bw* fw* (fu-bu)^2<br>
