@@ -55,3 +55,79 @@ u = fu * fw + bu*bw  (2)<br>
 类间方差 g：fw*(fu-u)^2+bw*(bu-u)^2  (3)<br>
 将(1)(2)带入(3)式：<br>
 g = bw* fw* (fu-bu)^2<br>
+
+```c
+#include <opencv2/opencv.hpp>  
+#include <cv.h>
+#include <highgui.h>
+#include <cxcore.h>
+
+using namespace std;
+using namespace cv;
+
+Mat otsuGray(const Mat src) {
+    Mat img = src;
+    int c = img.cols; //图像列数
+    int r = img.rows; //图像行数
+    int T = 0; //阈值
+    uchar* data = img.data; //数据指针
+    int ftNum = 0; //前景像素个数
+    int bgNum = 0; //背景像素个数
+    int N = c*r; //总像素个数
+    int ftSum = 0; //前景总灰度值
+    int bgSum = 0; //背景总灰度值
+    int graySum = 0;
+    double w0 = 0; //前景像素个数占比
+    double w1 = 0; //背景像素个数占比
+    double u0 = 0; //前景平均灰度
+    double u1 = 0; //背景平均灰度
+    double Histogram[256] = {0}; //灰度直方图
+    double temp = 0; //临时类间方差
+    double g = 0; //类间方差
+
+    //灰度直方图
+    for(int i = 0; i < r ; i ++) {
+        for(int j = 0; j <c; j ++) {
+            Histogram[img.at<uchar>(i,j)]++;
+        }
+    }
+    //求总灰度值
+    for(int i = 0; i < 256; i ++) {
+        graySum += Histogram[i]*i;
+    }
+
+    for(int i = 0; i < 256; i ++) {
+        ftNum += Histogram[i];  //阈值为i时前景个数
+        bgNum = N - ftNum;      //阈值为i时背景个数
+        w0 = (double)ftNum/N; //前景像素占总数比
+        w1 = (double)bgNum/N; //背景像素占总数比
+        if(ftNum == 0) continue;
+        if(bgNum == 0) break;
+        //前景平均灰度
+        ftSum += i*Histogram[i];
+        u0 = ftSum/ftNum;
+
+        //背景平均灰度
+        bgSum = graySum - ftSum;
+        u1 = bgSum/bgNum;
+
+        g = w0*w1*(u0-u1)*(u0-u1);
+        if(g > temp) {
+            temp = g;
+            T = i;
+        }
+    }
+
+    for(int i=0; i<img.rows; i++)
+    {
+        for(int j=0; j<img.cols; j++)
+        {
+            if((int)img.at<uchar>(i,j)>T)
+                img.at<uchar>(i,j) = 255;
+            else
+                img.at<uchar>(i,j) = 0;
+        }
+    }
+    return img;
+}
+```
