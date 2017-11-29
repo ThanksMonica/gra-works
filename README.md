@@ -1,6 +1,9 @@
 # gra-works
 @(病虫害检测)[图像分割|降维|识别]
 # 马铃薯病虫害检测步骤
+# - **图像预处理**
+分数阶微分算子处理图像->增强边缘与纹理<br>
+拉普拉斯算子提取边缘<br>
 # - **分离叶片与背景（提取叶片）**
   ① HSI，选取I通道，进行`中值滤波`操作->去噪；<br>
   ② Lab，选取a通道，进行`K-means聚类`->得到绿色叶片部分；<br>
@@ -9,7 +12,7 @@
   ⑤ `腐蚀-Hough变换`->拟合<br>
   ### 图像分割方法
     基于阈值： 
-[直方图双峰法(mode)](http://blog.csdn.net/hh555800/article/details/42342687);<br>
+[直方图双峰法(mode)](http://blog.csdn.net/hh555800/article/details/42342687)<br>
 [OTSU（自适应阈值)](https://zh.wikipedia.org/zh-hans/%E5%A4%A7%E6%B4%A5%E7%AE%97%E6%B3%95)<br>
 `缺点`：当图像复杂时（灰度差异小，信噪比低，目标面积小等）分割效果较差 ；
 ```matlab
