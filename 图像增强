@@ -1,0 +1,16 @@
+# 图像增强
+- # 评判标准<br>
+一、图像<br>
+①信息熵<br>
+```matlab
+img = imread('imgGray.jpg');
+E = entropy(img);
+```
+②平均梯度<br>
+
+
+二、灰度共生矩阵<br>
+```matlab
+GM = graycomatrix(imgGray);
+```
+①能量<br>②对比度<br>③齐次性(同质性)<br>
